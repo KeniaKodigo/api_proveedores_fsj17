@@ -24,3 +24,5 @@ Route::get('/proveedores_activos',[ProveedoresController::class, 'index']);
 Route::post('/registrar_proveedor', [ProveedoresController::class, 'store']);
 
 Route::put('/actualizar_proveedor/{id}', [ProveedoresController::class, 'update']);
+
+Route::put('/desactivar_proveedor/{id}', [ProveedoresController::class, 'desactivar']);

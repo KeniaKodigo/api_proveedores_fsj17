@@ -109,4 +109,20 @@ class ProveedoresController extends Controller
     }
 
     #Pendiente, crear el metodo donde el proveedor cambia de estado (inactivo)
+    public function desactivar($id){
+        /**
+         * actualizemos el estado del proveedor con id 5
+         * UPDATE proveedores SET id_estado = 2 WHERE id = ?
+         */
+        $proveedor = Proveedores::find($id); //select * from proveedores where id = ?
+        $proveedor->id_estado = 2;
+        $proveedor->update();
+
+        $json = array(
+            "status" => 200,
+            "detalle" => "El proveedor esta inactivo"
+        );
+
+        return json_encode($json, true);
+    }
 }
