@@ -73,7 +73,19 @@ class ProveedoresController extends Controller
             );
         }
 
-        return json_encode($json, true);
+        return json_encode($json, true); //php puro
+    }
+
+    public function obtenerById($id){
+        //select * from proveedores where id = 5
+        $proveedor = Proveedores::find($id); //{}
+
+        if(empty($proveedor)){
+            return response()->json(["status" => 400, "detalle" => "No se encontro"]);
+        }else{
+            return response()->json($proveedor); //laravel
+        }
+        
     }
 
     #actualizar proveedor
